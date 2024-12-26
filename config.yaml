@@ -1,0 +1,45 @@
+---
+data:
+  path: "data"
+  files:
+    3m: BTCUSDT_3m_data.csv
+    5m: BTCUSDT_5m_data.csv
+    15m: BTCUSDT_15m_data.csv
+    30m: BTCUSDT_30m_data.csv
+    1h: BTCUSDT_1h_data.csv
+    2h: BTCUSDT_2h_data.csv
+    4h: BTCUSDT_4h_data.csv
+    6h: BTCUSDT_6h_data.csv
+    12h: BTCUSDT_12h_data.csv
+    1d: BTCUSDT_1d_data.csv
+    1w: BTCUSDT_1w_data.csv
+  start_date: "2018-01-01"
+  end_date: "2024-09-30"
+  symbol: "BTCUSDT"
+
+backtester:
+  tp: 0.3
+  sl: 0.1
+  capital: 1000
+  slippage: 0.0015
+  leverage: 1
+  margin: 0.2
+  trailing: false
+  high_time: 1d
+  low_time: 3m
+  strategy: 'buttercheby'
+  print_metrics: true
+  compounding: true
+  plots:
+    show: false
+    save: false
+
+strategies:
+  strat_cheby:
+    butterworth:
+      order: 3
+      cutoff_frequency: 0.3
+    chebyshev:
+      order: 5
+      cutoff_frequency: 0.9
+      ripple_factor: 0.01
